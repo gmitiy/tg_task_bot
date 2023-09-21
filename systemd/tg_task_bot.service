@@ -1,0 +1,15 @@
+[Unit]
+After=network.target
+Description=TG Task Bot
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=bot
+EnvironmentFile=/home/bot/tg_task_bot/systemd/env.cfg
+WorkingDirectory=/home/bot/tg_task_bot/
+ExecStart=/usr/bin/python3 main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
